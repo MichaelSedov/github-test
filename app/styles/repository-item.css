@@ -1,0 +1,13 @@
+.repository-item {
+  margin-bottom: 16px;
+}
+
+.repository-item__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.branch__item {
+  padding: 4px 0;
+}

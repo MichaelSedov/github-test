@@ -1,0 +1,28 @@
+<li class="repository-item">
+  <div class="repository-item__head">
+    <div>
+      <a href={{@repo.html_url}} target="_blank" rel="noopener noreferrer">
+        {{@repo.name}}
+      </a> 
+      - {{@repo.language}} ({{if @repo.private "Private" "Public"}})
+    </div>
+    <button class="btn" type="button" {{on "click" this.fetchBranches}}>
+      {{#if this.isBranchesVisible}}Hide Branches{{else}}Show Branches{{/if}}
+    </button>
+  </div>
+
+  {{#if this.isLoadingBranches}}
+    <p>Loading branches...</p>
+  {{else if this.isBranchesVisible}}
+    {{#if this.branchesCount}}
+      <p>Branches: {{this.branchesCount}}</p>
+      <ul class="repository-item__branches branch">
+        {{#each this.branches as |branch|}}
+          <li class="branch__item">{{branch.name}}</li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>No branches available.</p>
+    {{/if}}
+  {{/if}}
+</li>

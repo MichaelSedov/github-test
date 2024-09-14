@@ -1,0 +1,29 @@
+<div class="repositories">
+  <input id="orgName" class="input" type="text" value={{this.organizationName}} {{on "input" this.updateOrganizationName}} placeholder="Enter GitHub organization name" />
+  <button class="btn" type="button" {{on "click" this.fetchRepositories}}>Fetch Repositories</button>
+
+  <div class="repositories__filters">
+    <select id="language" value={{this.selectedLanguage}} {{on "change" this.handleLanguageChange}}>
+      {{#each this.languages as |language|}}
+        <option value={{language}}>{{language}}</option>
+      {{/each}}
+    </select>
+
+    <label>
+      <input type="checkbox" checked={{this.showPublicRepos}} {{on "change" this.togglePublicRepos}} />
+      Show Public Repositories
+    </label>
+
+    <label>
+      <input type="checkbox" checked={{this.showPrivateRepos}} {{on "change" this.togglePrivateRepos}} />
+      Show Private Repositories
+    </label>
+  </div>
+
+  <ul>
+    {{#each this.filteredRepositories as |repo|}}
+      <RepositoryItem @repo={{repo}} />
+    {{/each}}
+  </ul>
+</div>
+

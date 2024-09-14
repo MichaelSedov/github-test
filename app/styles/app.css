@@ -1,1 +1,27 @@
-/* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+@import "reset.css";
+
+@import "ui.css";
+
+@import "repository-list.css";
+@import "repository-item.css";
+
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  width: 960px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+

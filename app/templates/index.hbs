@@ -1,0 +1,13 @@
+<div class="app">
+  <div class="main">
+    <div class="header">
+      <h2>GitHub Organization Repositories</h2>
+      <TokenManager />
+    </div>
+
+    {{#if this.githubApi.accessToken}}
+      <RepositoryList />
+    {{/if}}
+  </div>
+</div>
+

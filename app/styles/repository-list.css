@@ -1,0 +1,10 @@
+.repositories {
+  margin-top: 60px;
+}
+
+.repositories__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0;
+}
