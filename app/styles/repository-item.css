@@ -1,5 +1,8 @@
 .repository-item {
   margin-bottom: 16px;
+  padding: 8px 12px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
 }
 
 .repository-item__head {

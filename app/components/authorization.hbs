@@ -5,4 +5,5 @@
   <label for="token">Enter GitHub Access Token:</label>
   <input id="token" class="input" type="text" value={{this.tokenInput}} {{on "input" this.updateTokenInput}} />
   <button class="btn" type="button" {{on "click" this.saveToken}}>Save Token</button>
+  <ErrorMessage />
 {{/if}}

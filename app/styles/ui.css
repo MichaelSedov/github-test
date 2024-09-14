@@ -2,11 +2,11 @@
 .btn {
   appearance: none;
   background-color: #fafbfc;
-  border: 1px solid rgba(27, 31, 35, 0.15);
+  border: 1px solid rgb(27 31 35 / 15%);
   border-radius: 6px;
   box-shadow:
-    rgba(27, 31, 35, 0.04) 0 1px 0,
-    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    rgb(27 31 35 / 4%) 0 1px 0,
+    rgb(255 255 255 / 25%) 0 1px 0 inset;
   box-sizing: border-box;
   color: #24292e;
   cursor: pointer;
@@ -21,7 +21,7 @@
   position: relative;
   transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
   user-select: none;
-  -webkit-user-select: none;
+  user-select: none;
   touch-action: manipulation;
   vertical-align: middle;
   white-space: nowrap;
@@ -36,14 +36,14 @@
 
 .btn:disabled {
   background-color: #fafbfc;
-  border-color: rgba(27, 31, 35, 0.15);
+  border-color: rgb(27 31 35 / 15%);
   color: #959da5;
   cursor: default;
 }
 
 .btn:active {
   background-color: #edeff2;
-  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  box-shadow: rgb(225 228 232 / 20%) 0 1px 0 inset;
   transition: none 0s;
 }
 
@@ -63,5 +63,15 @@
 
 .input:focus {
   border-color: #007bff;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
+}
+
+/* ERROR MESSAGE */
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+  font-weight: bold;
 }

@@ -3,8 +3,11 @@ import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
+const LANGUAGES = ['All', 'JavaScript', 'Python', 'Ruby', 'Java', 'TypeScript'];
+
 export default class RepositoryListComponent extends Component {
   @service githubApi;
+  @service errorHandler;
 
   @tracked repositories = [];
   @tracked filteredRepositories = [];
@@ -13,14 +16,7 @@ export default class RepositoryListComponent extends Component {
   @tracked showPrivateRepos = true;
   @tracked organizationName = '';
 
-  @tracked languages = [
-    'All',
-    'JavaScript',
-    'Python',
-    'Ruby',
-    'Java',
-    'TypeScript',
-  ];
+  @tracked languages = LANGUAGES;
   @action
   applyFilters() {
     if (!this.repositories || this.repositories.length === 0) {
@@ -69,7 +65,7 @@ export default class RepositoryListComponent extends Component {
     const orgName = this.organizationName;
 
     if (!orgName || !this.githubApi.accessToken) {
-      alert('Please enter a GitHub organization name and access token.');
+      this.errorHandler.setError('Please enter a valid GitHub organization name.');
       return;
     }
 
@@ -77,8 +73,11 @@ export default class RepositoryListComponent extends Component {
       const data = await this.githubApi.request(`/orgs/${orgName}/repos`);
       this.repositories = data;
       this.applyFilters();
+      this.errorHandler.clearError();
     } catch (error) {
-      alert(`Error fetching repositories: ${error.message}`);
+      this.errorHandler.setError(
+        `Error fetching repositories for ${orgName}: ${error.message}`,
+      );
     }
   }
 }

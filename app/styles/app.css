@@ -1,9 +1,7 @@
-@import "reset.css";
-
-@import "ui.css";
-
-@import "repository-list.css";
-@import "repository-item.css";
+@import url("reset.css");
+@import url("ui.css");
+@import url("repository-list.css");
+@import url("repository-item.css");
 
 .app {
   display: flex;
@@ -23,5 +21,3 @@
   gap: 10px;
   padding-top: 20px;
 }
-
-

@@ -28,9 +28,10 @@ export default class GithubApiService extends Service {
   }
 
   async request(endpoint, options = {}) {
-    const url = endpoint.startsWith('http://') || endpoint.startsWith('https://')
-      ? endpoint
-      : `${this.baseUrl}${endpoint}`;
+    const url =
+      endpoint.startsWith('http://') || endpoint.startsWith('https://')
+        ? endpoint
+        : `${this.baseUrl}${endpoint}`;
 
     const headers = {
       ...options.headers,

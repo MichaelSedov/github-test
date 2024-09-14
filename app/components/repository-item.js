@@ -26,7 +26,7 @@ export default class RepositoryItemComponent extends Component {
 
     try {
       const data = await this.githubApi.request(
-        this.args.repo.branches_url.replace('{/branch}', '')
+        this.args.repo.branches_url.replace('{/branch}', ''),
       );
 
       this.branches = data;
@@ -42,4 +42,3 @@ export default class RepositoryItemComponent extends Component {
     }
   }
 }
-

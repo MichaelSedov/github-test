@@ -2,6 +2,8 @@
   <input id="orgName" class="input" type="text" value={{this.organizationName}} {{on "input" this.updateOrganizationName}} placeholder="Enter GitHub organization name" />
   <button class="btn" type="button" {{on "click" this.fetchRepositories}}>Fetch Repositories</button>
 
+  <ErrorMessage />
+
   <div class="repositories__filters">
     <select id="language" value={{this.selectedLanguage}} {{on "change" this.handleLanguageChange}}>
       {{#each this.languages as |language|}}
